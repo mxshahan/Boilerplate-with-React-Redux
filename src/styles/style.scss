@@ -1,0 +1,66 @@
+$brand:#7f4cc1;
+$bg-color: #eee;
+$p: #777;
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+ul{
+    list-style: none
+}
+
+body{
+    background: $bg-color;
+    margin: 20px;
+    font-family: "Roboto";
+}
+
+#app{
+    width: 80%;
+    background: #fff;
+    border-top: 3px solid $brand;
+    padding: 10px;
+    border-radius: 2px;
+    box-shadow: 1px 3px 5px rgba(0,0,0,0.2);
+    color: #333;
+    margin-bottom: 60px;
+    margin: 0px auto 60px auto;
+}
+
+#app p{
+    color:$p;
+    font-style: italic;
+}
+
+.options ul{
+    list-style-type: none;
+    padding:0px;
+}
+
+.error{
+    color: red !important;
+    padding-top: 10px;
+}
+
+header{
+    padding: 10px;
+}
+
+nav{
+    margin-bottom: 20px;
+}
+
+nav a{
+    color: $brand;
+    text-decoration:none;
+    font-size: 18px;
+    padding:10px;
+}
+
+.active{
+    background-color: $brand;
+    color:#fff;
+    border-radius: 0px 0px 5px 5px;
+}

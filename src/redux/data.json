@@ -1,0 +1,20 @@
+{
+  "expenses": {
+    "id": 1,
+    "name": "Abul Miya Gelo Koi",
+    "description": "Ita Abul Miyar Boi. Tumra kew dorio na",
+    "writing": {
+      "writenBy": "Abul Hasan",
+      "writenOn": "20 December 2014"
+    },
+    "totalSale": 2230,
+    "price": 220
+  },
+  "filters": {
+    "text":"",
+    "sortBy": "",
+    "startDate": null,
+    "endDate": null
+
+  }
+}

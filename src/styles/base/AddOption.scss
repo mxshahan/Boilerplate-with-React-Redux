@@ -1,0 +1,67 @@
+#top-item{
+    display: flex;
+    width: 100%;
+}
+
+#top-item input[name="description"]{
+    flex-basis: 0;
+    flex-grow: 5;
+    padding: 10px;
+    border: 2px solid #7f4cc1;
+    border-radius: 4px 0 0 4px;
+    color: #777;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.react-datepicker-wrapper{
+    float:right;
+}
+
+#addForm input[type="text"]{
+    padding: 10px;
+    border: 2px solid #7f4cc1;
+    border-radius: 4px 0 0 4px;
+    color: #777;
+    margin-bottom: 5px;
+    width: auto;
+}
+
+.datePicker{
+    float: right;
+}
+
+.datePicker label{
+    padding: 5px;
+}
+
+#top-item input[name="price"]{
+    flex-basis: 0;
+    flex-grow: 5;
+    padding: 10px;
+    border: 2px solid #7f4cc1;
+    border-radius: 4px 0 0 4px;
+    color: #777;
+    margin-left: 5px;
+    margin-bottom: 5px;
+}
+
+#addForm textarea{
+    padding: 10px;
+    border: 2px solid #7f4cc1;
+    border-radius: 4px 0 0 4px;
+    color: #777;
+    width: 100%;
+    height: 50px;
+    box-sizing: border-box;
+}
+
+#addForm input[type="submit"]{
+    padding: 10px;
+    background: #7f4cc1;
+    border-radius: 0 4px 4px 0;
+    border: 2px solid #7f4cc1;
+    color: #fff;
+    text-transform: uppercase;
+    cursor: pointer;
+}

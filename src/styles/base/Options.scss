@@ -1,0 +1,48 @@
+$brand:#7f4cc1;
+.items{
+    display: flex;
+}
+.expenses{
+    padding: 16px 10px;
+    border-bottom: 1px dashed #bbb;
+}
+  
+.expenses:hover{
+    background: #eee;
+}
+  
+.item-name{
+    flex-basis: 0;
+    flex-grow: 3;
+}
+
+.description{
+    flex-basis: 0;
+    flex-grow: 7;
+    text-align: right
+}
+
+.note{
+
+}
+
+.action{
+    flex-basis: 0;
+    flex-grow: 1;
+    text-align: right;
+    font-weight: bold;
+    cursor: pointer;
+    font-stretch:ultra-expanded
+}
+
+.action span{
+    padding:0px 5px;
+}
+
+.action .item-edit{
+    color: green;
+}
+
+.action .item-remove{
+    color: red;
+}
