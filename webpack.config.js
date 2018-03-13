@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const SRC = path.resolve(__dirname, 'src');
 const DST = path.resolve(__dirname, 'public');
 module.exports = {
@@ -21,7 +22,13 @@ module.exports = {
             ] 
         }]
     },
-    devtool: 'eval-source-map',
+    plugins: [        
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': '"production"'
+        }),
+        new webpack.optimize.UglifyJsPlugin({minimize: true})
+    ],
+    devtool: 'cheap-module-source-map',
     devServer: {
         contentBase: DST,
         historyApiFallback: true,

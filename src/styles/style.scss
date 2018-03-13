@@ -1,6 +1,8 @@
 $brand:#7f4cc1;
 $bg-color: #eee;
 $p: #777;
+$success: #090;
+$err: #f01;
 
 *{
     margin: 0px;
@@ -16,6 +18,18 @@ body{
     margin: 20px;
     font-family: "Roboto";
 }
+
+.errMsg{
+    float: left;
+    margin-top: 30px;
+    color:$success !important;
+    font-weight: bold;
+}
+
+.err{
+    color: $err !important;
+}
+
 
 #app{
     width: 80%;
@@ -64,3 +78,4 @@ nav a{
     color:#fff;
     border-radius: 0px 0px 5px 5px;
 }
+

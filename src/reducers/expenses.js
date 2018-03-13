@@ -1,5 +1,6 @@
 const expenseDef = [];
 
+
 export default (state=expenseDef, action) => {
     switch (action.type){
         case 'ADD_EXPENSE':
@@ -19,7 +20,14 @@ export default (state=expenseDef, action) => {
                 }else{
                     return expense;
                 }
-            })
+            });
+        case 'SET_EXPENSE': 
+            return [
+                ...state,
+                action.expenses
+            ];
+        case 'CLEAR_EXPENSE':
+            state = expenseDef
         default:
             return state;
     }
