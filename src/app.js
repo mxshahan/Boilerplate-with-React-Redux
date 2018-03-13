@@ -31,8 +31,8 @@ render(<p>Loading...</p>, document.getElementById('app'));
 
 firebase.auth().onAuthStateChanged((user) => {
     if(user){
-        console.log(user)
-        // store.dispatch(login(user.uid))
+        console.log('User', user)
+        store.dispatch(login(user.uid))
         store.dispatch(startSetExpense()).then(()=> {
             renderApp();
             if(history.location.pathname === '/login'){
