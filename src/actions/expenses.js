@@ -33,7 +33,8 @@ export const editExpense = (id, update) => ({
 
 //Start Add Expense with Thunk
 export const startAddExpense = (expenseData = {}) => {
-    return (dispatch) => {
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid;
         const {
             description = '',
             price = 0, 
@@ -43,7 +44,7 @@ export const startAddExpense = (expenseData = {}) => {
 
         const expenses = {description, price, createdAt, note};
 
-        database.ref('expenses').push(expenses).then((ref) => {
+        database.ref(`users/${uid}/expenses`).push(expenses).then((ref) => {
             dispatch(addExpense({
                 id: ref.key,
                 ...expenses
@@ -55,8 +56,9 @@ export const startAddExpense = (expenseData = {}) => {
 }
 
 export const startSetExpense = () => {
-    return (dispatch) => {
-        return database.ref('expenses').once('value').then((snap) => {
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid;
+        return database.ref(`users/${uid}/expenses`).once('value').then((snap) => {
             const expenses = [];
             snap.forEach((shot) => {
                 dispatch(setExpense({
@@ -76,7 +78,7 @@ export const startSetExpense = () => {
 export const removeExpenseData = (id) => {
     return (dispatch) => {
         // console.log(id)
-        database.ref('expenses').child(id).remove().then((snap) => {
+        database.ref(`users/${uid}/expenses`).child(id).remove().then((snap) => {
             dispatch(removeExpense({id}))
         }).catch(e => {
             console.log('Error Occur While Removing')            
@@ -87,7 +89,7 @@ export const removeExpenseData = (id) => {
 //Start Editing Data
 export const startEditExpense = (id, update) => {
     return (dispatch) => {
-        database.ref('expenses').child(id).update(update).then((snap) => {
+        database.ref(`users/${uid}/expenses`).child(id).update(update).then((snap) => {
             // console.log(snap.key, snap.val())
             dispatch(editExpense(id, update));
         }).catch(e => {

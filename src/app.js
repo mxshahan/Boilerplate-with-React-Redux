@@ -6,9 +6,11 @@ import configureStore from './store/configureStore';
 import { startSetExpense, startAddExpense, addExpense, startClearExpense} from './actions/expenses';
 import { setTextFilter, sortByDate, sortByAmount } from './actions/filters';
 import { login, logout } from './actions/auth';
+import {setUserData, removeUserData} from './actions/user';
 import getVisibleExpenses from './selectors/expenses';
 import './styles/style.scss';
 import { firebase } from './firebase/firebase';
+
 
 const store = configureStore();
 
@@ -31,8 +33,16 @@ render(<p>Loading...</p>, document.getElementById('app'));
 
 firebase.auth().onAuthStateChanged((user) => {
     if(user){
-        console.log('User', user)
-        store.dispatch(login(user.uid))
+        const userData = {            
+            uid: user.uid,
+            email: user.email,
+            displayName: user.displayName,
+            photoURL: user.photoURL
+        }
+        store.dispatch(login(user.uid));
+        
+        store.dispatch(setUserData(userData));
+
         store.dispatch(startSetExpense()).then(()=> {
             renderApp();
             if(history.location.pathname === '/login'){
@@ -41,6 +51,7 @@ firebase.auth().onAuthStateChanged((user) => {
         });
     }else{
         store.dispatch(logout())
+        store.dispatch(removeUserData())
         store.dispatch(startClearExpense())
         renderApp();        
         history.push('/login')

@@ -6,13 +6,16 @@ import {startLogin} from '../actions/auth';
 class LoginForm extends React.Component{
     state = {
         email: '',
-        pass: ''
+        pass: '',
+        errorMsg: false
     }
 
     handleLogin = (e) => {
         e.preventDefault();
         const {email, password} = e.target.elements;
-        this.props.handleLogin(email.value, password.value);
+        const message = this.props.handleLogin(email.value, password.value);
+        
+        
     }
 
     render(){

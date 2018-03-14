@@ -18,6 +18,7 @@ export const startLogin = () => {
             // dispatch(login(token))
             //Signed in User Info
             const user = result.user;
+            // console.log('From DB',user)
         }).catch((e) => {
             console.log(e)
         })
@@ -30,10 +31,10 @@ export const startLoginWithFacebook = () => {
     }
 }
 
-export const startLoginWithEmailAndPass = () => {
+export const startLoginWithEmailAndPass = (email, password) => {
     return () => {
-        return firebase.auth().signInWithEmailAndPassword(email, password).catch(e=> {
-            console.log("error", e)
+        return firebase.auth().signInWithEmailAndPassword(email, password).catch((error) => {
+            return error
         })
     }
 }
